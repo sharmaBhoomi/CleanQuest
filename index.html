@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CleanQuest</title>
+    <title>Clean Quest</title>
 
     <!-- Google Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
@@ -73,7 +73,7 @@
             color: var(--accent);
         }
 
-        /* HERO REWORK */
+        /* HERO */
         header {
             height: 100vh;
             background: linear-gradient(120deg, #003973, #00bfa6);
@@ -151,7 +151,6 @@
             color: var(--primary);
         }
 
-        /* RIGHT SIDE - INTERACTIVE */
         .hero-right {
             flex: 1 1 450px;
             position: relative;
@@ -326,7 +325,138 @@
             font-size: 1.1rem;
         }
 
-        /* FOOTER CONTACT */
+        /* PROCESS UPDATED */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .process-step {
+            background: #fff;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            perspective: 1000px;
+            transform-style: preserve-3d;
+            transition: transform 0.6s, box-shadow 0.3s;
+        }
+
+        .process-step:hover {
+            transform: rotateY(10deg) scale(1.05);
+            box-shadow: 0 12px 25px rgba(0, 191, 166, 0.25);
+        }
+
+        .process-step i {
+            font-size: 2.8rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+            animation: floatIcon 3s ease-in-out infinite;
+        }
+
+        @keyframes floatIcon {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .process-step h3 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        /* FINANCIALS UPDATED */
+        .financials-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .financials-text {
+            flex: 1 1 450px;
+            background: #f8fbfc;
+            border-radius: 10px;
+            padding: 35px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+        }
+
+        .financials-text h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .financials-stats {
+            flex: 1 1 350px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .f-stat {
+            background: #fff;
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            transition: 0.4s ease;
+            animation: floatCard 4s ease-in-out infinite;
+        }
+
+        .f-stat:nth-child(even) {
+            animation-delay: 1s;
+        }
+
+        @keyframes floatCard {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .f-stat:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 191, 166, 0.25);
+        }
+
+        .f-stat i {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .f-stat h4 {
+            color: var(--primary);
+            font-size: 1.6rem;
+            margin-bottom: 5px;
+        }
+
+        .f-stat p {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        /* FOOTER */
         footer {
             background: #1f1f1f;
             color: #bbb;
@@ -404,7 +534,6 @@
             background: var(--primary);
         }
 
-        /* Responsive */
         @media (max-width: 900px) {
             .hero-wrapper {
                 flex-direction: column;
@@ -424,7 +553,6 @@
 </head>
 
 <body>
-    <!-- NAV -->
     <nav>
         <h1>Plastic Waste Recycling</h1>
         <ul>
@@ -436,51 +564,34 @@
         </ul>
     </nav>
 
-    <!-- HERO -->
     <header>
         <div class="hero-wrapper">
             <div class="hero-left" data-aos="fade-right">
                 <h2>Transforming Plastic Waste Into Opportunity</h2>
-                <p>
-                    Join the movement towards sustainability — where waste becomes a resource, and innovation leads the
-                    way to a greener planet.
-                </p>
+                <p>Join the movement towards sustainability — where waste becomes a resource, and innovation leads the
+                    way to a greener planet.</p>
                 <div class="hero-buttons">
                     <button class="cta-btn"
-                        onclick="document.getElementById('intro').scrollIntoView({ behavior: 'smooth' })">
-                        Learn More
-                    </button>
+                        onclick="document.getElementById('intro').scrollIntoView({ behavior: 'smooth' })">Learn
+                        More</button>
                     <button class="cta-outline"
-                        onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">
-                        Contact Us
-                    </button>
+                        onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">Contact
+                        Us</button>
                 </div>
             </div>
-
             <div class="hero-right" data-aos="fade-left">
-                <div class="hero-bubble bubble1">
-                    <i class="fas fa-recycle"></i>
-                    <span>Recycling</span>
-                </div>
-                <div class="hero-bubble bubble2">
-                    <i class="fas fa-leaf"></i>
-                    <span>Sustainability</span>
-                </div>
-                <div class="hero-bubble bubble3">
-                    <i class="fas fa-globe-asia"></i>
-                    <span>Global Impact</span>
-                </div>
+                <div class="hero-bubble bubble1"><i class="fas fa-recycle"></i><span>Recycling</span></div>
+                <div class="hero-bubble bubble2"><i class="fas fa-leaf"></i><span>Sustainability</span></div>
+                <div class="hero-bubble bubble3"><i class="fas fa-globe-asia"></i><span>Global Impact</span></div>
             </div>
         </div>
         <div class="floating-shapes"></div>
     </header>
 
-    <!-- INTRO -->
     <section id="intro" data-aos="fade-up">
         <h2>Project Overview</h2>
         <p>Plastic waste recycling transforms discarded materials into reusable products, reducing environmental
             degradation and conserving natural resources.</p>
-
         <div class="stats" data-aos="fade-up">
             <div class="stat">
                 <h3 class="counter" data-target="85">0</h3>
@@ -501,89 +612,89 @@
         </div>
     </section>
 
-    <!-- OBJECTIVES -->
     <section id="objectives" data-aos="fade-up">
         <h2>Objectives</h2>
         <div class="cards">
-            <div class="card">
-                <i class="fas fa-leaf"></i>
+            <div class="card"><i class="fas fa-leaf"></i>
                 <h3>Environmental Protection</h3>
                 <p>Minimize pollution and landfill pressure through systematic recycling and waste segregation.</p>
             </div>
-            <div class="card">
-                <i class="fas fa-recycle"></i>
+            <div class="card"><i class="fas fa-recycle"></i>
                 <h3>Resource Conservation</h3>
                 <p>Reduce dependence on raw materials like crude oil and natural gas through sustainable recovery
                     systems.</p>
             </div>
-            <div class="card">
-                <i class="fas fa-chart-line"></i>
+            <div class="card"><i class="fas fa-chart-line"></i>
                 <h3>Economic Sustainability</h3>
                 <p>Generate employment and encourage entrepreneurship in green industries.</p>
             </div>
-            <div class="card">
-                <i class="fas fa-users"></i>
+            <div class="card"><i class="fas fa-users"></i>
                 <h3>Awareness & Education</h3>
                 <p>Promote public participation and awareness about recycling benefits and eco-friendly practices.</p>
             </div>
         </div>
     </section>
 
-    <!-- PROCESS -->
     <section id="process" data-aos="fade-up">
         <h2>Recycling Process</h2>
-        <div class="cards">
-            <div class="card">
-                <i class="fas fa-truck"></i>
+        <p style="text-align:center; max-width:800px; margin:0 auto 40px; color:#666;">
+            Our recycling workflow follows a streamlined path from collection to pelletization,
+            ensuring every plastic product is effectively repurposed with minimal waste.
+        </p>
+        <div class="process-grid">
+            <div class="process-step"><i class="fas fa-truck"></i>
                 <h3>Collection & Sorting</h3>
                 <p>Plastic waste is collected and sorted by type for further processing.</p>
             </div>
-            <div class="card">
-                <i class="fas fa-water"></i>
+            <div class="process-step"><i class="fas fa-water"></i>
                 <h3>Shredding & Cleaning</h3>
                 <p>Collected materials are shredded and cleaned to remove impurities.</p>
             </div>
-            <div class="card">
-                <i class="fas fa-cogs"></i>
+            <div class="process-step"><i class="fas fa-cogs"></i>
                 <h3>Drying & Agglomeration</h3>
                 <p>Moisture-free flakes are processed in agglomerators for uniformity.</p>
             </div>
-            <div class="card">
-                <i class="fas fa-industry"></i>
+            <div class="process-step"><i class="fas fa-industry"></i>
                 <h3>Extrusion & Pelletizing</h3>
                 <p>Molten plastic is extruded into pellets that serve as raw materials for manufacturing.</p>
             </div>
         </div>
     </section>
 
-    <!-- FINANCIALS -->
     <section id="financials" data-aos="fade-up">
         <h2>Financial Summary</h2>
-        <div class="cards">
-            <div class="card">
-                <i class="fas fa-coins"></i>
-                <h3>Capital Investment</h3>
-                <p>₹25,00,000 (Plant, Machinery & Working Capital)</p>
+        <div class="financials-container">
+            <div class="financials-text">
+                <h3>Investment & Returns</h3>
+                <p>The project involves a capital investment of <strong>₹25,00,000</strong> covering plant setup,
+                    machinery, and working capital. With efficient recycling operations and strategic partnerships, the
+                    project achieves profitability within 18 months, maintaining a steady margin of 18–20% annually.</p>
+                <p>Beyond direct returns, the initiative creates a sustainable ecosystem supporting
+                    <strong>employment</strong> and <strong>green entrepreneurship</strong>, driving long-term
+                    socio-economic growth.
+                </p>
             </div>
-            <div class="card">
-                <i class="fas fa-clock"></i>
-                <h3>Break-even Period</h3>
-                <p>18 Months</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-percent"></i>
-                <h3>Profit Margin</h3>
-                <p>18–20% per annum</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-briefcase"></i>
-                <h3>Employment</h3>
-                <p>Approx. 10–15 persons directly and indirectly</p>
+            <div class="financials-stats">
+                <div class="f-stat"><i class="fas fa-coins"></i>
+                    <h4>₹25L</h4>
+                    <p>Capital Investment</p>
+                </div>
+                <div class="f-stat"><i class="fas fa-clock"></i>
+                    <h4>18 Mo</h4>
+                    <p>Break-even Period</p>
+                </div>
+                <div class="f-stat"><i class="fas fa-percent"></i>
+                    <h4>20%</h4>
+                    <p>Profit Margin</p>
+                </div>
+                <div class="f-stat"><i class="fas fa-users"></i>
+                    <h4>15+</h4>
+                    <p>Jobs Created</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER CONTACT -->
     <footer id="contact">
         <div class="footer-content" data-aos="fade-up">
             <div class="contact-details">
@@ -609,7 +720,6 @@
     <script>
         AOS.init({ duration: 800, once: true });
 
-        // Scroll to top button
         const topBtn = document.getElementById("topBtn");
         window.addEventListener("scroll", () => {
             topBtn.style.display = window.scrollY > 400 ? "block" : "none";
