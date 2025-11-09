@@ -1007,7 +1007,7 @@
             }
         }
 
-        /* --- Enhanced Vertical Flow Showcase --- */
+        /* --- Fully Responsive Cinematic Vertical Flow --- */
         #functional-processing {
             background: linear-gradient(to bottom, #f9fdfd, #eef9f8);
             position: relative;
@@ -1019,11 +1019,11 @@
             position: relative;
             max-width: 1000px;
             margin: 0 auto;
-            height: 600px;
+            height: 70vh;
             overflow: hidden;
         }
 
-        /* Sleek gradient line */
+        /* Elegant gradient divider */
         .flow-line {
             position: absolute;
             left: 50%;
@@ -1032,34 +1032,36 @@
             bottom: 0;
             width: 3px;
             background: linear-gradient(to bottom,
-                    rgba(0, 191, 166, 0.6),
-                    rgba(0, 191, 166, 0.1),
-                    rgba(0, 191, 166, 0.6));
-            filter: blur(1px);
-            opacity: 0.7;
+                    rgba(0, 191, 166, 0.5),
+                    rgba(0, 191, 166, 0.15),
+                    rgba(0, 191, 166, 0.5));
+            filter: blur(0.5px);
+            opacity: 0.6;
             z-index: 1;
         }
 
-        /* Flow animation wrapper */
+        /* Scrolling container */
         .flow-wrapper {
             position: relative;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 100px;
+            gap: 8vh;
             animation: scrollUp 45s linear infinite;
             z-index: 2;
         }
 
-        /* Large image cards */
+        /* Image panels */
         .flow-item {
             position: relative;
-            width: 700px;
-            height: 400px;
+            width: 70vw;
+            max-width: 700px;
+            height: 40vh;
+            max-height: 400px;
             overflow: hidden;
             border-radius: 16px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
 
         .flow-item img {
@@ -1067,13 +1069,13 @@
             height: 100%;
             object-fit: cover;
             filter: brightness(0.9) contrast(1.05);
-            transition: transform 0.5s ease, filter 0.5s ease;
+            transition: transform 0.4s ease, filter 0.4s ease;
         }
 
-        /* Hover Effects */
+        /* Hover depth */
         .flow-item:hover {
             transform: scale(1.03);
-            box-shadow: 0 25px 60px rgba(0, 191, 166, 0.35);
+            box-shadow: 0 20px 50px rgba(0, 191, 166, 0.3);
         }
 
         .flow-item:hover img {
@@ -1081,7 +1083,7 @@
             filter: brightness(1) contrast(1.1);
         }
 
-        /* Scroll Animation */
+        /* Scroll animation */
         @keyframes scrollUp {
             0% {
                 transform: translateY(0);
@@ -1092,16 +1094,41 @@
             }
         }
 
-        /* Pause on hover */
+        /* Pause animation on hover */
         .vertical-carousel:hover .flow-wrapper {
             animation-play-state: paused;
         }
 
-        /* Responsive */
+        /* ===== Responsive Tweaks ===== */
         @media (max-width: 900px) {
             .flow-item {
-                width: 90%;
-                height: 300px;
+                width: 85vw;
+                height: 35vh;
+            }
+
+            .vertical-carousel {
+                height: 65vh;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .flow-item {
+                width: 90vw;
+                height: 30vh;
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+                border-radius: 10px;
+            }
+
+            .flow-wrapper {
+                gap: 6vh;
+            }
+
+            .vertical-carousel {
+                height: 60vh;
+            }
+
+            .flow-line {
+                opacity: 0.3;
             }
         }
     </style>
@@ -1243,12 +1270,10 @@
                 <div class="flow-item"><img src="images/step11.jpg" alt=""></div>
                 <div class="flow-item"><img src="images/step12.jpg" alt=""></div>
                 <div class="flow-item"><img src="images/step13.jpg" alt=""></div>
-                <div class="flow-item"><img src="images/step14jpg" alt=""></div>
-                <div class="flow-item"><img src="images/step15.jpg" alt=""></div>
-                <div class="flow-item"><img src="images/step16.jpg" alt=""></div>
             </div>
         </div>
     </section>
+
 
 
     <section id="financials" data-aos="fade-up">
@@ -1396,12 +1421,13 @@
             });
         });
 
-        // Duplicate flow for seamless loop
+        // Duplicate flow for seamless infinite scroll
         const flow = document.querySelector('.vertical-carousel .flow-wrapper');
         if (flow) {
             const clone = flow.cloneNode(true);
             flow.parentNode.appendChild(clone);
         }
+
 
 
     </script>
