@@ -1006,6 +1006,104 @@
                 display: block;
             }
         }
+
+        /* --- Enhanced Vertical Flow Showcase --- */
+        #functional-processing {
+            background: linear-gradient(to bottom, #f9fdfd, #eef9f8);
+            position: relative;
+            overflow: hidden;
+            padding-bottom: 80px;
+        }
+
+        .vertical-carousel {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            height: 600px;
+            overflow: hidden;
+        }
+
+        /* Sleek gradient line */
+        .flow-line {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom,
+                    rgba(0, 191, 166, 0.6),
+                    rgba(0, 191, 166, 0.1),
+                    rgba(0, 191, 166, 0.6));
+            filter: blur(1px);
+            opacity: 0.7;
+            z-index: 1;
+        }
+
+        /* Flow animation wrapper */
+        .flow-wrapper {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 100px;
+            animation: scrollUp 45s linear infinite;
+            z-index: 2;
+        }
+
+        /* Large image cards */
+        .flow-item {
+            position: relative;
+            width: 700px;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .flow-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.9) contrast(1.05);
+            transition: transform 0.5s ease, filter 0.5s ease;
+        }
+
+        /* Hover Effects */
+        .flow-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 25px 60px rgba(0, 191, 166, 0.35);
+        }
+
+        .flow-item:hover img {
+            transform: scale(1.05);
+            filter: brightness(1) contrast(1.1);
+        }
+
+        /* Scroll Animation */
+        @keyframes scrollUp {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-50%);
+            }
+        }
+
+        /* Pause on hover */
+        .vertical-carousel:hover .flow-wrapper {
+            animation-play-state: paused;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .flow-item {
+                width: 90%;
+                height: 300px;
+            }
+        }
     </style>
 </head>
 
@@ -1121,6 +1219,37 @@
             </div>
         </div>
     </section>
+
+    <section id="functional-processing" data-aos="fade-up">
+        <h2>Functional Processing</h2>
+        <p style="text-align:center; max-width:800px; margin:0 auto 40px; color:#666;">
+            A visual walkthrough of the functional workflow.
+        </p>
+
+        <div class="vertical-carousel">
+            <div class="flow-line"></div>
+
+            <div class="flow-wrapper">
+                <div class="flow-item"><img src="images/step1.jpg" alt=""></div>
+                <div class="flow-item"><img src="images/step2.jpg" alt=""></div>
+                <div class="flow-item"><img src="images/step3.jpg" alt=""></div>
+                <div class="flow-item"><img src="images/step4.jpg" alt=""></div>
+                <div class="flow-item"><img src="images/step5.jpg" alt=""></div>
+                <div class="flow-item"><img src="images/step6.jpg" alt=""></div>
+                <div class="flow-item"><img src="images/step7.jpg" alt=""></div>
+                <div class="flow-item"><img src="images/step8.jpg" alt=""></div>
+                <div class="flow-item"><img src="images/step9.jpg" alt=""></div>
+                <div class="flow-item"><img src="images/step10.jpg" alt=""></div>
+                <div class="flow-item"><img src="images/step11.jpg" alt=""></div>
+                <div class="flow-item"><img src="images/step12.jpg" alt=""></div>
+                <div class="flow-item"><img src="images/step13.jpg" alt=""></div>
+                <div class="flow-item"><img src="images/step14jpg" alt=""></div>
+                <div class="flow-item"><img src="images/step15.jpg" alt=""></div>
+                <div class="flow-item"><img src="images/step16.jpg" alt=""></div>
+            </div>
+        </div>
+    </section>
+
 
     <section id="financials" data-aos="fade-up">
         <h2>Financial Summary</h2>
@@ -1266,6 +1395,14 @@
                 menuToggle.querySelector("i").classList.remove("fa-times");
             });
         });
+
+        // Duplicate flow for seamless loop
+        const flow = document.querySelector('.vertical-carousel .flow-wrapper');
+        if (flow) {
+            const clone = flow.cloneNode(true);
+            flow.parentNode.appendChild(clone);
+        }
+
 
     </script>
 </body>
